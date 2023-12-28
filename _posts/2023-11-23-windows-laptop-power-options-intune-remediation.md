@@ -106,18 +106,15 @@ _Power Options > Plan Settings_
 
 #### Detection Script Summary:
 
-- The script determines if a device is a laptop by checking for the presence of a battery.
+- The script determines if a device is a laptop by checking Chassis type of the device.
 - It checks if power options have been applied previously by looking for the existence of a log file.
-- If the device is a laptop and the log file exists, it outputs "Power Options have been applied" and exits with code 0.
-- If the device is not a laptop, it outputs "Device is not a laptop" and exits with code 0.
+- If the device is a laptop and the log file exists, it outputs "Power Options have been applied, Exiting." and exits with code 0.
+- If the device is not a laptop, it outputs "Device is not a laptop, Exiting." and exits with code 0.
 - If the device is a laptop, but the log file doesn't exist, it outputs "Power Options have not been applied, Running Remediation..." and exits with code 1.
 
 #### Remediation Script Summary:
 
 - The script retrieves a list of all power plans and iterates through them to configure the specified power options.
-- Retrieves a list of power plans on the device.
-- Processes the output to extract power scheme GUIDs and names.
-- Creates an array of custom objects containing GUID and Name for each power scheme.
 - Attempts to update power settings for each power scheme.
 - Configures settings for Turn Off Display After, Hard Disk Timeout, Sleep After, Hibernate After, Power Button Action, Sleep Button Action, and Close Lid Action.
 
